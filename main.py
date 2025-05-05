@@ -89,3 +89,7 @@ def delete_item(item_id: int):
     cursor.execute("DELETE FROM items WHERE id = ?", (item_id,))
     conn.commit()
     return Item(**row)
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the FastAPI app!"}
